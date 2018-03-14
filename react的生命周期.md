@@ -1,5 +1,6 @@
 #   React的生命周期
 
+！[Aaron Swartz](https://github.com/esperanza1211/note/raw/master/react%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.png)
 ![avatar][doge]
 
 ###  实例化
