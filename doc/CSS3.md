@@ -171,7 +171,7 @@ transition-duration | 定义过渡效果花费的时间。默认是 0。
 transition-timing-function | 规定过渡效果的时间曲线。默认是 "ease"。
 transition-delay | 规定过渡效果何时开始。默认是 0。
 
-### 动画
+### CSS3动画
 
 属性 | 描述
 --- | ---
@@ -186,7 +186,7 @@ animation-direction | 规定动画是否在下一周期逆向地播放。默认�
 animation-play-state | 规定动画是否正在运行或暂停。默认是 "running"。
 animation-fill-mode | 规定对象动画时间之外的状态。
 
-### CSS多列
+### CSS3多列
 
 属性 | 描述
 --- | ---
@@ -201,7 +201,7 @@ column-span | 规定元素应该横跨的列数。
 column-width | 规定列的宽度。
 columns | 规定设置 column-width 和 column-count 的简写属性。
 
-### CSS3 用户界面
+### CSS3用户界面
 
 属性 | 描述
 --- | ---
