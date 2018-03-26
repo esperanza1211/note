@@ -3,7 +3,7 @@
 ### 边框
 
 属性 | 描述 
----|---
+--- | ---
 border-image | 设置所有border-image-*属性的简写属性。
 border-radius | 设置所有四个border-*-radius属性的简写属性。
 box-shadow | 向方框添加一个或多个阴影。
@@ -11,7 +11,7 @@ box-shadow | 向方框添加一个或多个阴影。
 ### 背景
 
 属性 | 描述 
----|---
+--- | ---
 background-clip | 规定背景的绘制区域。
 background-origin | 规定背景图片的定位区域。
 background-size | 规定背景图片的尺寸。
@@ -19,7 +19,7 @@ background-size | 规定背景图片的尺寸。
 ### 文本效果
 
 属性 | 描述 
-:---:|:---:
+--- | ---
 hanging-punctuation | 规定标点字符是否位于线框之外。
 punctuation-trim | 规定是否对标点字符进行修剪。
 text-align-last | 设置如何对齐最后一行或紧挨着强制换行符之前的行。
