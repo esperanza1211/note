@@ -19,7 +19,7 @@ background-size | 规定背景图片的尺寸。
 ### 文本效果
 
 属性 | 描述 
----|---
+:---:|:---:
 hanging-punctuation | 规定标点字符是否位于线框之外。
 punctuation-trim | 规定是否对标点字符进行修剪。
 text-align-last | 设置如何对齐最后一行或紧挨着强制换行符之前的行。
@@ -32,9 +32,10 @@ text-wrap | 规定文本的换行规则。
 word-break | 规定非中日韩文本的换行规则。
 word-wrap | 允许对长的不可分割的单词进行分割并换行到下一行。
 
+
 ### 字体
 
-<table>
+<table style="float:left">
     <thead>
         <tr style="background: #ccc">
             <th>属性</th>  
@@ -44,82 +45,82 @@ word-wrap | 允许对长的不可分割的单词进行分割并换行到下一�
     </thead>
     <tbody>
         <tr>
-            <th>font-family</th>  
-            <th>name</th>
-            <th>必需。规定字体的名称。</th>     
+            <td>font-family</td>  
+            <td>name</td>
+            <td>必需。规定字体的名称。</td>     
         </tr>
         <tr>
-            <th>src</th>  
-            <th>URL</th>
-            <th>必需。定义字体文件的 URL。</th>     
+            <td>src</td>  
+            <td>URL</td>
+            <td>必需。定义字体文件的 URL。</td>     
         </tr>
         <tr>
-            <th rowspan="9">font-stretch</th>  
-            <th>normal</th>
-            <th rowspan="9">可选。定义如何拉伸字体。默认是 "normal"。</th>     
+            <td rowspan="9">font-stretch</td>  
+            <td>normal</td>
+            <td rowspan="9">可选。定义如何拉伸字体。默认是 "normal"。</td>     
         </tr>
         <tr>
-            <th>condensed</th>
+            <td>condensed</td>
         </tr>
         <tr>
-            <th>ultra-condensed</th>
+            <td>ultra-condensed</td>
         </tr>
         <tr>
-            <th>extra-condensed</th>
+            <td>extra-condensed</td>
         </tr>
         <tr>
-            <th>semi-condensed</th>
+            <td>semi-condensed</td>
         </tr>
         <tr>
-            <th>expanded</th>
+            <td>expanded</td>
         </tr>
         <tr>
-            <th>semi-expanded</th>
+            <td>semi-expanded</td>
         </tr>
         <tr>
-            <th>extra-expanded</th>
+            <td>extra-expanded</td>
         </tr>
         <tr>
-            <th>ultra-expanded</th>
+            <td>ultra-expanded</td>
         </tr>
         <tr>
-            <th rowspan="3">font-style</th>  
-            <th>normal</th>
-            <th rowspan="3">可选。定义字体的样式。默认是 "normal"。</th>     
+            <td rowspan="3">font-style</td>  
+            <td>normal</td>
+            <td rowspan="3">可选。定义字体的样式。默认是 "normal"。</td>     
         </tr>
         <tr>
-            <th>italic</th>
+            <td>italic</td>
         </tr>
         <tr>
-            <th>oblique</th>
+            <td>oblique</td>
         </tr>
         <tr>
-            <th rowspan="7">font-weight</th>  
-            <th>normal</th>
-            <th rowspan="7">可选。定义字体的粗细。默认是 "normal"。</th>     
+            <td rowspan="7">font-weight</td>  
+            <td>normal</td>
+            <td rowspan="7">可选。定义字体的粗细。默认是 "normal"。</td>     
         </tr>
         <tr>
-            <th>bold</th>
+            <td>bold</td>
         </tr>
         <tr>
-            <th>100</th>
+            <td>100</td>
         </tr>
         <tr>
-            <th>200</th>
+            <td>200</td>
         </tr>
         <tr>
-            <th>300</th>
+            <td>300</td>
         </tr>
         <tr>
-            <th>...</th>
+            <td>...</td>
         </tr>
         <tr>
-            <th>900</th>
+            <td>900</td>
         </tr>
         <tr>
-            <th>unicode-range</th>  
-            <th>unicode-range</th>
-            <th>可选。定义字体支持的 UNICODE 字符范围。默认是 "U+0-10FFFF"。</th>     
+            <td>unicode-range</td>  
+            <td>unicode-range</td>
+            <td>可选。定义字体支持的 UNICODE 字符范围。默认是 "U+0-10FFFF"。</td>     
         </tr>
     </tbody>
 </table>
