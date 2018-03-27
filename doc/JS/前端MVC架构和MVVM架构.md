@@ -29,6 +29,7 @@ MVC包括三类对象，将它们分离以提高灵活性和复用性。
 ##  前端MVC模式
 
 ![index](https://raw.githubusercontent.com/esperanza1211/note/master/image/MVCforJS.png)
+
 javascript MVC模式
 
 如图所示，view承接了部分controller的功能，负责处理用户输入，但是不必了解下一步做什么。它依赖于一个controller为她做决定或处理用户事件。事实上，前端的view已经具备了独立处理用户事件的能力，如果每个事件都要流经controller，势必增加复杂性。同时，view也可以委托controller处理model的更改。model数据变化后通知view进行更新，显示给用户。这个过程是一个圆，一个循环的过程。
@@ -38,6 +39,7 @@ javascript MVC模式
 ##  MVVM
 
 ![index](https://raw.githubusercontent.com/esperanza1211/note/master/image/MVVM.png)
+
 MVVM模式
 
 首先，view和model是不知道彼此存在的，同MVP一样，将view和model清晰地分离开来。 其次，view是对viewmodel的外在显示，与viewmodel保持同步，viewmodel对象可以看作是view的上下文。view绑定到viewmodel的属性上，如果viewmodel中的属性值变化了，这些新值通过数据绑定会自动传递给view。反过来viewmodel会暴露model中的数据和特定状态给view。 所以，view不知道model的存在，viewmodel和model也觉察不到view。事实上，model也完全忽略viewmodel和view的存在。这是一个非常松散耦合的设计。
