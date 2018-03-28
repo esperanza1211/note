@@ -770,9 +770,7 @@ for (var {k, v} of obj) {
 
 Set与数组非常相似，但是Set数据结构的成员都是唯一的。
 
-**Set 中只能添加一个NaN**
-
-[ES6的Set数据结构详解]()
+[ES6的Set数据结构详解](https://github.com/esperanza1211/note/blob/master/doc/JS/ES6%E7%9A%84Set.md)
 
 ##  WeakSet
 
@@ -848,3 +846,10 @@ console.log(weakset.has(bObj))  //false
 2.  作为 WeakSet 成员的对象都是弱引用，即垃圾回收机制不考虑 WeakSet 对该对象的引用，也就是说，如果其他对象都不再引用该对象，那么垃圾回收机制会自动回收该对象所占用的内存，不考虑该对象还存在与WeakSet之中。这个特点意味着，无法引用WeakSet的成员，**因此WeakSet是不可遍历的。**
 
 3.  使用WeakSet存储对象实例的好处是，由于是对对象实例的引用，不会被计入内存回收机制，所以删除实例的时候，不用考虑weaket，也不会出现内存泄漏。
+
+##  Promise
+
+[深入了解Promise]()
+
+##  class
+
