@@ -215,3 +215,6 @@ http://blog.csdn.net/five3/article/details/7181521
 我们可以通过使用 html5 新增的一个对象 FormData来构建 formdata格式数据，该对象会自动帮助我们生成一个 formdata 格式的数据。
 
 上传数据（非文本，字符型），也就是二进制数据，一定要通过http的正文传输，不能使用queryString，上传二进制数据通过 post。
+
+
+##  [防止重复发送AJAX请求的解决办法](https://github.com/esperanza1211/note/blob/master/doc/AJAX/%E9%98%B2%E6%AD%A2%E9%87%8D%E5%A4%8D%E5%8F%91%E9%80%81AJAX%E8%AF%B7%E6%B1%82.md)
