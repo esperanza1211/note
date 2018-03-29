@@ -628,6 +628,17 @@ Object.setPrototypeOf(arr, {
 });
 console.dir( Object.getPrototypeOf( arr ) );
 ```
+*   Object.assign()
+
+>   浅拷贝、对象属性的合并
+
+>   用法：
+>   
+>   1.  合并多个对象
+>   
+>   2.  克隆对象（浅）
+>   
+>   3.  为对象添加多个方法
 
 ##  Proxy
 
@@ -849,7 +860,7 @@ console.log(weakset.has(bObj))  //false
 
 ##  Promise
 
-[深入了解Promise]()
+[深入了解Promise](https://github.com/esperanza1211/note/blob/master/doc/JS/ES6%E7%9A%84Promise.md)
 
 ##  class
 
