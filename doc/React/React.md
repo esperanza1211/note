@@ -580,3 +580,407 @@ ReactDOM.render(
     document.querySelector('#app')
 );
 ```
+
+##  生命周期
+
+一个组件从被创建到被销毁的过程称为：生命周期
+React 在组件的生命周期内的不同阶段会调用一些函数，我们把这些函数又称为：生命周期函数
+组件一共有三个阶段：
+	Mounting：挂载阶段
+	Updating：更新阶段
+	Unmounting：卸载阶段
+Mounting 和 Unmounting 阶段在组件的整个生命周期中只会出现一次，而Updating 阶段将会在组件每次更新中执行
+
+```
+class App extends React.Component {
+
+    constructor(args) {
+        console.log('constructor');
+        super(args);
+    }
+    
+    //在组件即将被挂载的时候调用一次
+    componentWillMount() {
+        console.log('componentWillMount');
+    }
+    
+    //在组件被挂载完成的时候调用一次，可以在这里使用refs
+    componentDidMount() {
+        console.log('componentDidMount');
+        console.log(this.refs);
+        this.refs.title.style.color = 'red';
+    }
+
+    render() {
+        console.log('render');
+        return(
+            <div>
+                <h1 ref="title">标题</h1>
+                <p ref="content">内容</p>
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
+
+组件挂载之后，每次调用setState后都会调用shouldComponentUpdate判断是否需要重新渲染组件。默认返回true，需要重新render。在比较复杂的应用里，有一些数据的改变并不影响界面展示，可以在这里做判断，优化渲染效率。
+
+```
+class List extends React.Component {
+
+    constructor(args) {
+        super(args);
+
+        this.state = {
+            value: 1.123456
+        }
+    }
+
+    //当父组件更新导致该组件更新的时候，调用该函数
+    componentWillReceiveProps( nextProps ) {
+        console.log('componentWillReceiveProps');
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate');
+        return true;
+    }
+
+    componentWillUpdate(nextProps, nextState) {
+        console.log('componentWillUpdate');
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('componentDidUpdate');
+    }
+
+    render() {
+        console.log('render');
+        return(
+            <div>
+                <button
+                    onClick={e=>{
+                        this.setState({
+                            value: this.state.value + 0.005
+                        })
+                    }}
+                >++</button>
+                <h1>value: {this.state.value.toFixed(1)}</h1>
+                <h1>data: {this.props.data}</h1>
+            </div>
+        );
+    }
+
+}
+
+class App extends React.Component {
+
+    constructor(args) {
+        super(args);
+
+        this.state = {
+            v: 1
+        }
+    }
+
+    render() {
+        return(
+            <div>
+                <button
+                    onClick={e=>{
+                        this.setState({
+                            v: this.state.v + 1
+                        })
+                    }}
+                >++</button>
+                {/*<h1>{this.state.v}</h1>*/}
+                <hr />
+                <List data={this.state.v} />
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
+
+[react生命周期详解](https://github.com/esperanza1211/note/blob/master/doc/React/react%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
+
+##  受控组件和非受控组件
+
+在react中，表单类元素会被react进行托管，这些元素的某些属性会被React进行控制：
+
+*   input: value
+
+*   input.radio、checkbox: checked
+
+*   select: selected
+
+这些属性不能直接响应用户的更改，而是被React所控制，当然有两种方式可以去操作该组件的这些属性
+
+1.  使用非受控属性把组件变成非受控型组件
+
+2.  修改受控组件绑定的数组值
+
+```
+class App extends React.Component {
+
+    constructor(args) {
+        super(args);
+
+        this.state = {
+            v: 1
+        }
+    }
+
+    render() {
+        return(
+            <div>
+
+                <button
+                    onClick={
+                        e => {
+                            this.setState({
+                                v: this.state.v + 1
+                            })
+                        }
+                    }
+                >按钮</button>
+
+                <input type="text" value={this.state.v} onChange={ e => {
+                    this.setState({
+                        v: e.target.value
+                    })
+                }} />
+
+                <hr/>
+
+                <input type="text" defaultValue={this.state.v} />
+                <input type="checkbox" checked={false} /> 选中
+                <input type="checkbox" defaultChecked={false} /> 选中
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
+
+##  children
+
+##  defaultProps
+
+该类添加一个defaultProps属性，这个属性是一个对象，对象中的key对应着组件内部的props，他的作用是给组件的props设置默认值的
+
+```
+class Dialog extends React.Component {
+
+    render() {
+        return (
+            <div className="dialog">
+                <h2>{this.props.title}</h2>
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        );
+    }
+
+}
+
+Dialog.defaultProps = {
+    title: '标题',
+    children: '内容'
+};
+
+class App extends React.Component {
+
+    constructor(args) {
+        super(args);
+    }
+
+    render() {
+        return(
+            <div>
+                <h1>App</h1>
+
+                <Dialog>新的内容</Dialog>
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
+
+##  propTypes
+
+该类添加一个defaultProps属性，这个属性是一个对象，对象中的key对应着组件内部的props，他的作用是给组件的props设置默认值的
+
+通过给类添加一个propTypes的属性来进行属性的类型检测
+
+以下是 propTypes 提供的支持的验证类型
+    PropTypes.string / PropTypes.number / PropTypes.bool / PropTypes.symbol / PropTypes.object / PropTypes.func / PropTypes.array
+    PropTypes.node / PropTypes.element
+还可以自定验证类型
+    PropTypes.instanceOf( UserType )： UserType 为自定义类型
+
+PropTypes.oneOf(['News', 'Photos'])
+
+PropTypes.oneOfType([
+	PropTypes.string,
+	PropTypes.instanceOf(Message)
+])
+
+PropTypes.arrayOf(PropTypes.number)
+PropTypes.objectOf(PropTypes.number)
+PropTypes.shape({
+	color: PropTypes.string,
+	fontSize: PropTypes.number
+})
+
+我们还有通过定义一个验证函数来验证我们的 props
+value: function(props, propName, componentName) {
+    if (props[propName] < 0 || props[propName] > 200) {
+        throw new Error('不是人');
+    }
+}
+
+```
+class Dialog extends React.Component {
+
+    render() {
+        console.log(this.props.onSubmit)
+        return (
+            <div className="dialog">
+                <h2>{this.props.title}</h2>
+                <div>
+                    {this.props.children}
+                </div>
+            </div>
+        );
+    }
+
+}
+Dialog.defaultProps = {
+    title: '标题',
+    children: '内容'
+};
+function zmouse(props, propName, componentName) {
+    if (props[propName] && props[propName] < 10) {
+        throw new Error('小屁孩，通不过');
+    }
+};
+zmouse.isRequired = function() {
+    if (!props[propName] || props[propName] < 10) {
+        throw new Error('小屁孩，通不过');
+    }
+};
+
+Dialog.propTypes = {
+    v: zmouse.isRequired
+};
+
+class App extends React.Component {
+
+    constructor(args) {
+        super(args);
+    }
+
+    render() {
+        return(
+            <div>
+                <h1>App</h1>
+                <Dialog>新的内容</Dialog>
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
+
+##  key
+
+在jsx的循环中，被循环的最外层结构 标签 上最好加上key属性，并且key的是唯一的 => VM -> 虚拟DOM - diff
+
+在react中我们渲染一个列表的时候，我们需要为每一个列表项指定一个唯一的key，当没有指定key时，会收到一个warning， 如果指定的key不唯一，只会渲染第一个指定唯一的key的那个元素。
+
+使用key可以使得DOM diff更加高效，避免不必要的列表项更新。
+
+```
+class App extends React.Component {
+
+    constructor(args) {
+        super(args);
+
+        this.state = {
+            data: ['刘伟','莫涛','童斌']
+        }
+    }
+
+    render() {
+        return(
+            <div>
+                <button
+                    onClick={
+                        e => {
+                            this.setState({
+                                data: ['童斌','莫涛','刘伟']
+                            })
+                        }
+                    }
+                >按钮</button>
+                <ul>
+                    {
+                        this.state.data.map( item => {
+                            return <li key={item}>{item}</li>;
+                        } )
+                    }
+
+                </ul>
+            </div>
+        );
+    }
+
+}
+
+ReactDOM.render(
+    <div>
+        <App/>
+    </div>,
+    document.querySelector('#app')
+);
+```
