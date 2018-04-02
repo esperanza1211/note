@@ -40,13 +40,13 @@
 
 ### Framework
 
-#### React
+*   #### React
 
 [React](https://github.com/esperanza1211/note/blob/master/doc/React/React.md)
 
 [React的生命周期](https://github.com/esperanza1211/note/blob/master/doc/React/react%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
-#### Vue
+*   #### Vue
 
 [Vue的生命周期](https://github.com/esperanza1211/note/blob/master/doc/Vue/vue%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.md)
 
